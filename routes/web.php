@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\{CategoryController,subCategoryController};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,10 +22,12 @@ Route::get('/category/edit/{id}',[CategoryController::class,'edit'])->name('cate
 Route::post('/category/update/{id}',[CategoryController::class,'update'])->name('category.update');
 
 
-
-
-
-
+//___Sub Category Crud___//
+Route::get('/subcategory/index',[subCategoryController::class,'index'])->name('subcategory.index');
+Route::post('/subcategory/store',[subCategoryController::class,'store'])->name('subcategory.store');
+Route::delete('/subcategory/{id}', [subCategoryController::class, 'delete'])->name('subcategory.delet');
+Route::get('/subcategory/edit/{id}',[subCategoryController::class,'edit'])->name('subcategory.edit');
+Route::post('/subcategory/update/{id}',[subCategoryController::class,'update'])->name('subcategory.update');
 
 
 
