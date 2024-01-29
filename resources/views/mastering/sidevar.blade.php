@@ -97,6 +97,34 @@
                     </ul>
                 </li>
                 <!-- District End -->
+
+                <!-- post Start -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Posts
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('post.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>ADD Post</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('subDistrict.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Post</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- post End -->
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
