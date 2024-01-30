@@ -32,8 +32,8 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form>
-
+                        <form  action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="card-body">
 
                                 <div class="row">
@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="exampleInputPassword1">Sub Category</label>
-                                        <select name="sub_cat_id" class="form-control">
+                                        <select name="sub_cat_id" class="form-control" id="sub_cat_id">
                                             <option selected="" disabled="">==Choose One Sub Category==</option>
                                             <option value=""></option>
                                         </select>
@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="exampleInputPassword1">Sub District</label>
-                                        <select name="sub_dis_id" class="form-control">
+                                        <select name="sub_dis_id" class="form-control" id="sub_dis_id">
                                             <option selected="" disabled="">==Choose One Sub District==</option>
                                             <option value=""></option>
                                         </select>
@@ -90,7 +90,7 @@
                                     <label for="exampleInputFile">File input</label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="	image">
+                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="image" required>
                                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                         </div>
                                         <div class="input-group-append">
@@ -168,15 +168,36 @@
                 var cat_id = $(this).val();
                 if (cat_id) {
                     $.ajax({
-                        url:"{{url('/get/subcat/')}}/"+cat_id,
+                        url: "{{url('/get/subcat/')}}/" + cat_id,
                         type: "GET",
                         dataType: "json",
                         success: function(data) {
-                            // $("#city").empty();
-                            // $.each(data, function(key, value) {
-                            //     $("#city").append('<option value="' + value.id + '">' + value.city_name + '</option>');
-                            // });
-                            console.log(data);
+                            $("#sub_cat_id").empty();
+                            $.each(data, function(key, value) {
+                                $("#sub_cat_id").append('<option value="' + value.id + '">' + value.subcategory_bn + '</option>');
+                            });
+                        },
+                    });
+                } else {
+                    alert("danger");
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("select[name='dis_id']").on("change", function() {
+                var dis_id = $(this).val();
+                if (dis_id) {
+                    $.ajax({
+                        url: "{{url('/get/subdis/')}}/" + dis_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data) {
+                            $("#sub_dis_id").empty();
+                            $.each(data, function(key, value) {
+                                $("#sub_dis_id").append('<option value="' + value.id + '">' + value.subDistrict_bn + '</option>');
+                            });
                         },
                     });
                 } else {

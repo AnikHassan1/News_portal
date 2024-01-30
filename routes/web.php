@@ -42,12 +42,14 @@ Route::get('/subdistrict/edit/{id}',[subDistrickController::class,'edit'])->name
 Route::post('/subdistrict/update/{id}',[subDistrickController::class,'update'])->name('subdistrict.update');
 //__post Crud__//
 Route::get('/post/create',[postController::class,'create'])->name('post.create');
+Route::get('/post/index',[postController::class,'index'])->name('post.index');
 Route::post('/post/store',[postController::class,'store'])->name('post.store');
 Route::delete('/post/delete/{id}',[postController::class, 'delete'])->name('post.delete');
 Route::get('/post/edit/{id}',[postController::class,'edit'])->name('post.edit');
 Route::post('/post/update/{id}',[postController::class,'update'])->name('post.update');
 //__Ajax Route__//
 Route::get('/get/subcat/{cat_id}',[postController::class,'ajax']);
+Route::get('/get/subdis/{dis_id}',[postController::class,'ajaxDistrict']);
 
 
 
