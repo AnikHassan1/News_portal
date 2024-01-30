@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                       
+
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped ">
@@ -52,7 +52,7 @@
                                         <td>{{$row->post_date}}</td>
                                         <td>
                                             <div class="d-flex gap-2">
-                                                <a href="{{route('category.edit', $row->id)}}" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                <a href="{{route('post.edit', $row->id)}}" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
                                                 <form method="POST" action="{{ route('post.delete', $row->id) }}">
                                                     @csrf
                                                     <input name="_method" type="hidden" value="DELETE">
